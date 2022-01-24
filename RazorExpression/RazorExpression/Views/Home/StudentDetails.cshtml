@@ -1,0 +1,64 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>StudentDetails</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.6.0.js"></script>
+    <script src="~/Scripts/popper.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+</head>
+<body>
+    <div>
+        <nav class="navbar navbar-expand-sm bg-warning navbar-light">
+
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/Home/Index">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Home/Product">Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Home/Contact">Contact Us</a>
+                </li>
+            </ul>
+        </nav>
+        <h2 style="background-color:palevioletred">Welcome to our website</h2>
+        
+
+        <div class="container-fluid">
+            <table class="table">
+                <tr>
+                    <td> student id</td>
+                    <td>@ViewBag.studentid</td>
+                    
+                </tr>
+                <tr>
+                    <td>student name</td>
+                    <td>@ViewBag.studentname</td>
+                    
+                </tr>
+                <tr>
+                    <td> student phone</td>
+                    <td>@ViewBag.studentphone</td>
+                    
+                </tr>
+
+                <tr>
+                    <td>student marks</td>
+                    <td>@ViewBag.marks</td>
+                </tr>
+
+            </table>
+        </div>
+    
+    </div>
+</body>
+</html>
