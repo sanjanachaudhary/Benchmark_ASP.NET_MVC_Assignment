@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "65f660b1-69cb-4e7b-b84c-d1b6a860130a": {
+      "ProjectGuid": "65f660b1-69cb-4e7b-b84c-d1b6a860130a",
+      "DisplayName": "SharedView",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

@@ -1,0 +1,5 @@
+Install-Package jQuery
+
+Install-Package Popper.js
+
+Install-Package Bootstrap
