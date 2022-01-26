@@ -9,47 +9,50 @@
     <script src="~/Scripts/popper.js"></script>
     <script src="~/Scripts/bootstrap.js"></script>
 </head>
-<title>@ViewBag.Title</title>
+
 <body>
     <div>
 
-        <nav class="navbar navbar-expand-sm bg-warning navbar-light">
+        <nav class="navbar navbar-expand-sm bg-success navbar-light">
 
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="/Home/Index">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Home/Product">Products</a>
+                    <a class="nav-link" href="/Home/Contact">Contact Us</a>
                 </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="/Home/About">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Home/Contact">Contact Us</a>
+                    <a class="nav-link" href="/Home/Product">profile</a>
                 </li>
+
             </ul>
-            <div class="col-4 text-white">
-                @ViewBag.message
-            </div>
+            
         </nav>
 
         <div class="container-fluid">
             <div class="row">
-                <div class="col-2 text-white" style="background-color:aquamarine;min-height:1050px;padding:0px">
-                    <div class="list-group">
-                        <a href="#" class="list-group-item text-white" style="background-color:transparent">favourites</a>
-                        <a href="#" class="list-group-item text-white" style="background-color:transparent">products</a>
-                        <a href="#" class="list-group-item text-white" style="background-color:transparent">your orders</a>
-                        @RenderSection("SideBarOption",required:false)
-                    </div>
-                </div>
 
                 <div class="col-10" style="min-height:610px">
                     @RenderBody()
                 </div>
+                <div class="col-2 text-white bg-black-info" style="background-color:aquamarine;min-height:1050px;padding:0px">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item text-white" style="background-color:transparent">favourites</a>
+                        <a href="#" class="list-group-item text-white" style="background-color:transparent">products</a>
+                        <a href="#" class="list-group-item text-white" style="background-color:transparent">your orders</a>
+                        @RenderSection("SideBarOption", required: false)
+                    <p class="text-info m-3">@ViewBag.message</p>
+                    </div>
+                </div>
+
+
             </div>
-            
+
         </div>
 
 
