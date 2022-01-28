@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Products</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>product id </th>
+            <th>product name</th>
+            <th>rate</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.products)
+        {
+            <tr>
+                <td>@item.productid</td>
+                <td><a href="/product/details/@item.productid">@item.productname</a></td>
+                <td>@item.rate</td>
+            </tr>
+
+        }
+
+    </tbody>
+</table>

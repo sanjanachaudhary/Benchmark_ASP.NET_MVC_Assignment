@@ -1,0 +1,29 @@
+﻿@model List<layoutView.Models.Product>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Products</h2>
+<a href="@Url.Action("Create","Product")">create product</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>product id </th>
+            <th>product name</th>
+            <th>rate</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.productid</td>
+                <td><a href="/product/details/@item.productid">@item.productname</a></td>
+                <td>@item.rate</td>
+            </tr>
+
+        }
+
+    </tbody>
+</table>

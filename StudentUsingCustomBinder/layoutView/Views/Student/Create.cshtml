@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<form action="/Student/Create" method="post">
+    <div class="form-group">
+        <label>student id</label>
+        <input type="text" class="form-control" id="txtstudentid" placeholder="student id" name="studentid" />
+
+    </div>
+    <div class="form-group">
+        <label>student name</label>
+        <input type="text" class="form-control" id="txtstudentname" placeholder="student name" name="studentname" />
+
+    </div>
+    <div class="form-group">
+        <label>D.No</label>
+        <input type="text" class="form-control" id="txtDNo" placeholder="D.No" name="DNo" />
+
+    </div>
+    <div class="form-group">
+        <label>street</label>
+        <input type="text" class="form-control" id="txtStreet" placeholder="street" name="street" />
+
+    </div>
+    <div class="form-group">
+        <label>landmark</label>
+        <input type="text" class="form-control" id="txtLandmark" placeholder="Landmark" name="landmark" />
+
+    </div>
+    <div class="form-group">
+        <label>city</label>
+        <input type="text" class="form-control" id="txtCity" placeholder="city" name="city" />
+
+    </div>
+
+    <button class="btn btn-success">submit</button>
+
+</form>
