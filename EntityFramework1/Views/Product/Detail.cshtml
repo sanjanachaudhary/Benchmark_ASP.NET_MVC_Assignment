@@ -1,0 +1,51 @@
+﻿@model EntityFramework1.Models.product
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/Layout1.cshtml";
+}
+<h2>Product Detail</h2>
+
+<table class="table">
+    <tr>
+        <td>Product Id</td>
+        <td>@Model.pid</td>
+    </tr>
+    <tr>
+        <td>Product Name</td>
+        <td>@Model.pname</td>
+    </tr>
+    <tr>
+        <td>Product Price</td>
+        <td>@Model.price</td>
+    </tr>
+    <tr>
+        <td>Date of purchase</td>
+        <td>@Model.dop</td>
+    </tr>
+    <tr>
+        <td>Product Id</td>
+        <td>@Model.pid</td>
+    </tr>
+    <tr>
+        <td>Product status</td>
+        <td>@Model.astatus</td>
+    </tr>
+    <tr>
+        <td>Product category Id</td>
+        <td>@Model.cid</td>
+    </tr>
+    <tr>
+        <td>Product brand Id</td>
+        <td>@Model.bid</td>
+    </tr>
+    <tr>
+        <td>Product active</td>
+        <td>@Model.active</td>
+    </tr>
+</table>
+
+<a class="btn btn-outline-warning" style="background-color: #FFC300;color:black " href="\Product\Index">Back</a>
+
+
+

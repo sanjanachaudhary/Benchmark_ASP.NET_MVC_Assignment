@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="endemo1ModelStoreContainer" CdmEntityContainer="endemo1Entities1">
+    <EntitySetMapping Name="Brands">
+      <EntityTypeMapping TypeName="endemo1Model.Brand">
+        <MappingFragment StoreEntitySet="Brand">
+          <ScalarProperty Name="bid" ColumnName="bid" />
+          <ScalarProperty Name="bname" ColumnName="bname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="endemo1Model.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="cid" ColumnName="cid" />
+          <ScalarProperty Name="cname" ColumnName="cname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="products">
+      <EntityTypeMapping TypeName="endemo1Model.product">
+        <MappingFragment StoreEntitySet="product">
+          <ScalarProperty Name="pid" ColumnName="pid" />
+          <ScalarProperty Name="pname" ColumnName="pname" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="dop" ColumnName="dop" />
+          <ScalarProperty Name="astatus" ColumnName="astatus" />
+          <ScalarProperty Name="cid" ColumnName="cid" />
+          <ScalarProperty Name="bid" ColumnName="bid" />
+          <ScalarProperty Name="active" ColumnName="active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

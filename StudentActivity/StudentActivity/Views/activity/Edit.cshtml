@@ -1,0 +1,30 @@
+﻿@model StudentActivity.Models.activity
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Edit Activity </h2>
+
+<form action="/activity/edit/@Model.aid" method='post'>
+    <div class="form-row">
+
+        <div class="form-group col-md-6">
+            <input type="hidden" name="aid" value="@Model.aid" />
+            <label for="activity">Activity</label>
+            <input type="text" class="form-control" name="activity1" id="activity" value="@Model.activity1" placeholder="activity" />
+        </div>
+        <div class="form-group col-md-6">
+            <label for="cost">cost</label>
+            <input type="text" class="form-control" name="cost" id="cost" value="@Model.cost" placeholder="cost" />
+        </div>
+        <div class="form-group col-md-6">
+            <label for="studentid">studentid</label>
+            <input type="text" class="form-control" name="stud_id" id="studentid" value="@Model.stud_id" placeholder="student ID" />
+        </div>
+        
+    </div>
+    <button type="submit" class="btn btn-success">save</button>
+    <a class="btn btn-danger" href="/activity/index">Cancel</a>
+</form>
+

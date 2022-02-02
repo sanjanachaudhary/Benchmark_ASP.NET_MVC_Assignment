@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Create Activity</h2>
+
+<form action="/activity/create" method='post'>
+    <div class="form-row">
+
+        <div class="form-group col-md-6">
+            <label for="studentname">Activity</label>
+            <input type="text" class="form-control" name="activity" id="activity" placeholder=" Enter activity " />
+        </div>
+        <div class="form-group col-md-6">
+            <label for="phone">cost</label>
+            <input type="text" class="form-control" name="cost" id="cost" placeholder="cost" />
+        </div>
+        <div class="form-group col-md-6">
+            <label for="address">student id</label>
+            <input type="text" class="form-control" name="studentid" id="studentid" placeholder="student ID" />
+        </div>
+        
+    </div><br />
+    <button type="submit" class="btn btn-success">create</button>
+    <a class="btn btn-danger" href="/activity/index">Cancel</a>
+</form>
+

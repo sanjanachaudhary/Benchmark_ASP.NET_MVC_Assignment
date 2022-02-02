@@ -1,0 +1,46 @@
+﻿@model List<StudentActivity.Models.student>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Student</h2>
+
+<a href="/student/create">Create</a>
+<form class="from-inline" action="/student/index">
+    @*<label for="search" class="mr-1">Search :</label>
+        <input type="search" class="form-control mr-1" id="search" name="search" placeholder="Search" />
+        <button type="submit" class="btn btn-primary">Search</button>*@
+    <input type="search" class="form-control rounded" placeholder="searchname" name="searchname" id="searchname" aria-label="Search name" aria-describedby="search-addon" value="@ViewBag.searchname" />
+    <input type="search" class="form-control rounded" placeholder="searchaddress" name="searchaddress" id="searchaddress" aria-label="Search address" aria-describedby="search-addon" value="@ViewBag.searchaddress" />
+    <input type="search" class="form-control rounded" placeholder="searchgender" name="searchgender" id="searchgender" aria-label="Search gender" aria-describedby="search-addon" value="@ViewBag.searchgender" />
+    <button type="submit" class="btn btn-outline-primary">search</button>
+
+</form>
+
+<table class="table">
+    <tr>
+        <th>Student ID</th>
+        <th>Student Name</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>Gender</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.stud_id</td>
+            <td>@item.sname</td>
+            <td>@item.phone</td>
+            <td>@item.address</td>
+            <td>@item.gender</td>
+            <td>
+                <a href="/student/details/@item.stud_id">Details</a>
+                <a href="/student/edit/@item.stud_id">Edit</a>
+                <a href="/student/delete/@item.stud_id">Delete</a>
+            </td>
+        </tr>
+
+    }
+
+</table>

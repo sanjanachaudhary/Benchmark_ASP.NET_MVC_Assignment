@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="endemo1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Brand">
+    <Key>
+      <PropertyRef Name="bid" />
+    </Key>
+    <Property Name="bid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="bname" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="products" Relationship="Self.FK__product__bid__3B75D760" FromRole="Brand" ToRole="product" />
+  </EntityType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="cid" />
+    </Key>
+    <Property Name="cid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cname" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="products" Relationship="Self.FK__product__cid__3A81B327" FromRole="Category" ToRole="product" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="pid" />
+    </Key>
+    <Property Name="pid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pname" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="price" Type="Decimal" Precision="15" Scale="2" />
+    <Property Name="dop" Type="DateTime" Precision="3" />
+    <Property Name="astatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cid" Type="Int64" />
+    <Property Name="bid" Type="Int64" />
+    <Property Name="active" Type="Boolean" />
+    <NavigationProperty Name="Brand" Relationship="Self.FK__product__bid__3B75D760" FromRole="product" ToRole="Brand" />
+    <NavigationProperty Name="Category" Relationship="Self.FK__product__cid__3A81B327" FromRole="product" ToRole="Category" />
+  </EntityType>
+  <Association Name="FK__product__bid__3B75D760">
+    <End Role="Brand" Type="Self.Brand" Multiplicity="0..1" />
+    <End Role="product" Type="Self.product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Brand">
+        <PropertyRef Name="bid" />
+      </Principal>
+      <Dependent Role="product">
+        <PropertyRef Name="bid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__product__cid__3A81B327">
+    <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+    <End Role="product" Type="Self.product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="cid" />
+      </Principal>
+      <Dependent Role="product">
+        <PropertyRef Name="cid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="endemo1Entities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Brands" EntityType="Self.Brand" />
+    <EntitySet Name="Categories" EntityType="Self.Category" />
+    <EntitySet Name="products" EntityType="Self.product" />
+    <AssociationSet Name="FK__product__bid__3B75D760" Association="Self.FK__product__bid__3B75D760">
+      <End Role="Brand" EntitySet="Brands" />
+      <End Role="product" EntitySet="products" />
+    </AssociationSet>
+    <AssociationSet Name="FK__product__cid__3A81B327" Association="Self.FK__product__cid__3A81B327">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="product" EntitySet="products" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

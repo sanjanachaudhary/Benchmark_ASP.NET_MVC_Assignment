@@ -1,0 +1,65 @@
+﻿@model List<EntityFramework1.Models.product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout1.cshtml";
+}
+<h2>Products</h2>
+<form class="form-inline">
+    <label for="search">Search</label>
+    <input type="search" class="form-control" id="search" name="search" value="@ViewBag.s" />
+    <button type="submit" class="btn-btn-warning">Go</button>
+</form>
+<a class="btn btn-outline-warning" style="background-color: #FFC300;color:black " href="\Product\Create">Create product</a>
+<table class="table">
+    <tr>
+        <th>Product Id</th>
+        <th>Product Name</th>
+        <th>Product Price</th>
+        <th>Date of purchase</th>
+        <th>Product status</th>
+        <th>Category</th>
+        <th>Brand</th>
+        <th>Active</th>
+        
+
+
+
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.pid</td>
+    <td>@item.pname</td>
+    <td>@item.price</td>
+    <td>
+        @if (item.dop.HasValue)
+        {
+        <span>@item.dop.Value.ToString("d/M/yyyy")</span>
+        }
+    </td>
+    <td>@item.astatus</td>
+    <td>
+        @if(item.Category!=null)
+        {
+        <span>@item.Category.cname</span>
+        }
+    </td>
+    <td>
+        @if(item.Brand!=null)
+        {
+        <span>@item.Brand.bname</span>
+        }
+    </td>
+   
+    <td>@item.active</td>
+    <td><a class="btn btn-outline-warning" style="background-color: #FFC300;color:black " href="\Product\Detail\@item.pid">Details</a></td>
+    <td><a class="btn btn-outline-warning" style="background-color: #FFC300;color:black " href="\Product\Edit\@item.pid">Edit</a></td>
+    <td><a class="btn btn-outline-warning" style="background-color: #FFC300;color:black " href="\Product\Delete\@item.pid">Delete</a></td>
+
+
+</tr>
+
+    }
+</table>
+

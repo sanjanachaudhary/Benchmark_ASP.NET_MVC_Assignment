@@ -1,0 +1,59 @@
+﻿@model List<StudentActivity.Models.activity>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Activity</h2>
+
+<a href="/activity/create">Create</a>
+<form class="from-inline" action="/activity/index">
+    @*<label for="search" class="mr-1">Search :</label>
+        <input type="search" class="form-control mr-1" id="search" name="search" placeholder="Search" />
+        <button type="submit" class="btn btn-primary">Search</button>*@
+    
+    <input type="search" class="form-control rounded" placeholder="Search" name="search" id="search" aria-label="Search" aria-describedby="search-addon" value="@ViewBag.search" />
+    <button type="submit" class="btn btn-outline-primary">search</button>
+
+</form>
+
+
+<table class="table">
+    <tr>
+        <th>Activity ID</th>
+        <th>Acitvity Name</th>
+        <th>Cost</th>
+        <th>Student ID</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>@item.aid</td>
+            <td>@item.activity1</td>
+            <td>
+                @if (item.cost.HasValue)
+                {
+                    <span>@item.cost.Value.ToString("C")</span>
+
+                }
+            </td>
+            <td>
+                @if (item.student != null)
+                {
+                    <span> @item.student.sname</span>
+                }
+            </td>
+            <td>
+                <a href="/activity/details/@item.aid">Details</a>
+                <a href="/activity/edit/@item.aid">Edit</a>
+                <a href="/activity/delete/@item.aid">Delete</a>
+            </td>
+
+        </tr>
+
+
+    }
+
+</table>
