@@ -1,0 +1,58 @@
+﻿ @model StudentActivity.Models.student
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Delete Student</h2>
+
+<form action="/student/delete/@Model.stud_id" method='post'>
+<div class="form-row">
+    <table class="table">
+        <tr>
+            <th>
+                <div class="form-group col-md-6">
+                    <label for="studentname">Student Name</label>
+                    <input type="hidden" name="stud_id" value="@Model.stud_id" />
+                </div>
+            </th>
+            <th>
+                <div class="form-group col-md-6">
+                    <label for="phone">Phone Number</label>
+                </div>
+            </th>
+            <th>
+                <div class="form-group col-md-6">
+                    <label for="address">Address</label>
+
+                </div>
+                
+            </th>
+            <th>
+                <div class="form-group col-md-6">
+                    <label for="gender">Gender</label>
+                </div>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                @Model.sname
+            </td>
+            <td>
+                @Model.phone
+            </td>
+            <td>
+                @Model.address
+            </td>
+            <td>
+                @Model.gender
+            </td>
+        </tr>
+
+    </table>
+    
+    
+</div>
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a class="btn btn-danger" href="/student/index">cancel</a>
+</form>

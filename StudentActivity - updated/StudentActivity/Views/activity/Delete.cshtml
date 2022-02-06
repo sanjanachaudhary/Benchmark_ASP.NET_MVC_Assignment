@@ -1,0 +1,51 @@
+﻿@model StudentActivity.Models.activity
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Delete activity</h2>
+
+<form action="/activity/delete/@Model.aid" method='post'>
+    <div class="form-row">
+        <table class="table">
+            <tr>
+                <th>
+                    <div class="form-group col-md-6">
+                        <label for="Activity">Activity</label>
+                        <input type="hidden" name="aid" value="@Model.aid" />
+                    </div>
+                </th>
+                <th>
+                    <div class="form-group col-md-6">
+                        <label for="cost">Cost</label>
+                    </div>
+                </th>
+                <th>
+                    <div class="form-group col-md-6">
+                        <label for="studentid">studentid</label>
+
+                    </div>
+
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    @Model.activity1
+                </td>
+                <td>
+                    @Model.cost
+                </td>
+                <td>
+                    @Model.stud_id
+                </td>
+               
+            </tr>
+
+        </table>
+
+
+    </div>
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a class="btn btn-danger" href="/activity/index">cancel</a>
+</form>
