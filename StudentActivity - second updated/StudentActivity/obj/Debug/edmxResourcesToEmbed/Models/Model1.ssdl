@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="studentActivityDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="activity">
+    <Key>
+      <PropertyRef Name="aid" />
+    </Key>
+    <Property Name="aid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="activity" Type="varchar" MaxLength="100" />
+    <Property Name="cost" Type="int" />
+    <Property Name="stud_id" Type="int" />
+    <Property Name="photo" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="student">
+    <Key>
+      <PropertyRef Name="stud_id" />
+    </Key>
+    <Property Name="stud_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="sname" Type="varchar" MaxLength="100" />
+    <Property Name="phone" Type="bigint" />
+    <Property Name="address" Type="varchar" MaxLength="100" />
+    <Property Name="gender" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__activity__stud_i__38996AB5">
+    <End Role="student" Type="Self.student" Multiplicity="0..1" />
+    <End Role="activity" Type="Self.activity" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="student">
+        <PropertyRef Name="stud_id" />
+      </Principal>
+      <Dependent Role="activity">
+        <PropertyRef Name="stud_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="studentActivityDBModelStoreContainer">
+    <EntitySet Name="activity" EntityType="Self.activity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="student" EntityType="Self.student" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__activity__stud_i__38996AB5" Association="Self.FK__activity__stud_i__38996AB5">
+      <End Role="student" EntitySet="student" />
+      <End Role="activity" EntitySet="activity" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

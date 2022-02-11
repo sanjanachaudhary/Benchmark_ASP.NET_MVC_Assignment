@@ -1,0 +1,34 @@
+﻿@model StudentActivity.Models.student
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2> Student Details</h2>
+
+
+<table class="table">
+    <tr>
+        <th>Student ID</th>
+        <td>@Model.stud_id</td>
+    </tr>
+    <tr>
+        <th>Student name</th>
+        <td>@Model.sname</td>
+    </tr>
+    <tr>
+        <th>Phone</th>
+        <td>@Model.phone</td>
+    </tr>
+    <tr>
+        <th>Address</th>
+        <td>@Model.address</td>
+    </tr>
+    <tr>
+        <th>Gender</th>
+        <td>@Model.gender</td>
+    </tr>
+</table>
+
+<a href="/student/index">Back to Students</a>
+

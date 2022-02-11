@@ -1,0 +1,43 @@
+﻿@model StudentActivity.Models.activity
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Activity Details</h2>
+
+
+
+<table class="table">
+    <tr>
+        <th>Activity ID</th>
+        <td>@Model.aid</td>
+    </tr>
+    <tr>
+        <th>Activity</th>
+        <td>@Model.activity1</td>
+    </tr>
+    <tr>
+        <th>Cost</th>
+        <td>
+            @if (Model.cost.HasValue)
+            {
+            <span>@Model.cost.Value.ToString("C")</span>
+            }
+        </td>
+    </tr>
+    <tr>
+        <th>Student ID</th>
+        <td>
+            @if(Model.student!= null)
+            {
+                @Model.student.sname
+            }
+        </td>
+    </tr>
+</table>
+
+<a href="/activity/index">Back to activity</a>
+
+
+

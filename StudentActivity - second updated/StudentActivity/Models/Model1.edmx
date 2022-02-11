@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="studentActivityDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="activity">
+          <Key>
+            <PropertyRef Name="aid" />
+          </Key>
+          <Property Name="aid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="activity" Type="varchar" MaxLength="100" />
+          <Property Name="cost" Type="int" />
+          <Property Name="stud_id" Type="int" />
+          <Property Name="photo" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="student">
+          <Key>
+            <PropertyRef Name="stud_id" />
+          </Key>
+          <Property Name="stud_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sname" Type="varchar" MaxLength="100" />
+          <Property Name="phone" Type="bigint" />
+          <Property Name="address" Type="varchar" MaxLength="100" />
+          <Property Name="gender" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__activity__stud_i__38996AB5">
+          <End Role="student" Type="Self.student" Multiplicity="0..1" />
+          <End Role="activity" Type="Self.activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="stud_id" />
+            </Principal>
+            <Dependent Role="activity">
+              <PropertyRef Name="stud_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="studentActivityDBModelStoreContainer">
+          <EntitySet Name="activity" EntityType="Self.activity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="student" EntityType="Self.student" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__activity__stud_i__38996AB5" Association="Self.FK__activity__stud_i__38996AB5">
+            <End Role="student" EntitySet="student" />
+            <End Role="activity" EntitySet="activity" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="studentActivityDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="activity">
+          <Key>
+            <PropertyRef Name="aid" />
+          </Key>
+          <Property Name="aid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="activity1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cost" Type="Int32" />
+          <Property Name="stud_id" Type="Int32" />
+          <NavigationProperty Name="student" Relationship="Self.FK__activity__stud_i__38996AB5" FromRole="activity" ToRole="student" />
+          <Property Name="photo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="student">
+          <Key>
+            <PropertyRef Name="stud_id" />
+          </Key>
+          <Property Name="stud_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="Int64" />
+          <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="activities" Relationship="Self.FK__activity__stud_i__38996AB5" FromRole="student" ToRole="activity" />
+        </EntityType>
+        <Association Name="FK__activity__stud_i__38996AB5">
+          <End Role="student" Type="Self.student" Multiplicity="0..1" />
+          <End Role="activity" Type="Self.activity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="student">
+              <PropertyRef Name="stud_id" />
+            </Principal>
+            <Dependent Role="activity">
+              <PropertyRef Name="stud_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="studentActivityDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="activities" EntityType="Self.activity" />
+          <EntitySet Name="students" EntityType="Self.student" />
+          <AssociationSet Name="FK__activity__stud_i__38996AB5" Association="Self.FK__activity__stud_i__38996AB5">
+            <End Role="student" EntitySet="students" />
+            <End Role="activity" EntitySet="activities" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="studentActivityDBModelStoreContainer" CdmEntityContainer="studentActivityDBEntities">
+          <EntitySetMapping Name="activities">
+            <EntityTypeMapping TypeName="studentActivityDBModel.activity">
+              <MappingFragment StoreEntitySet="activity">
+                <ScalarProperty Name="photo" ColumnName="photo" />
+                <ScalarProperty Name="aid" ColumnName="aid" />
+                <ScalarProperty Name="activity1" ColumnName="activity" />
+                <ScalarProperty Name="cost" ColumnName="cost" />
+                <ScalarProperty Name="stud_id" ColumnName="stud_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="students">
+            <EntityTypeMapping TypeName="studentActivityDBModel.student">
+              <MappingFragment StoreEntitySet="student">
+                <ScalarProperty Name="stud_id" ColumnName="stud_id" />
+                <ScalarProperty Name="sname" ColumnName="sname" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
